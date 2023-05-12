@@ -12,6 +12,7 @@ namespace To_Do_List_exam_27._04._2023
 {
     public partial class Form1 : Form
     {
+        ListViewItem item;
 
         public Form1() {
             InitializeComponent();
@@ -21,6 +22,11 @@ namespace To_Do_List_exam_27._04._2023
             comboBox1.Items.Add("Месяц");
             comboBox1.SelectedItem = comboBox1.Items[0];
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            item = listView1.Items.Add("01.01.2023");
+            item.SubItems.Add("12:30");
+            item.SubItems.Add("Hight");
+            item.SubItems.Add("Tag");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
@@ -35,10 +41,30 @@ namespace To_Do_List_exam_27._04._2023
             Close();
         }
 
+        public string ReceiveDate {
+            get { return listView1.Items.ToString(); }
+            set { item = listView1.Items.Add(value); } 
+        }
+
+        public string ReceiveTime {
+            get { return listView1.Items.ToString(); }
+            set { item.SubItems.Add(value); }
+        }
+
+        public string ReceivePriority {
+            get { return listView1.Items.ToString(); }
+            set { item.SubItems.Add(value); }
+        }
+
+        public string ReceiveTag {
+            get { return listView1.Items.ToString(); }
+            set { item.SubItems.Add(value); }
+        }
+
         private void button1_Click(object sender, EventArgs e) {
             AddCase addCase = new AddCase();
+            addCase.Owner = this;
             addCase.ShowDialog();
-            
 
         }
 

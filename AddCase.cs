@@ -12,6 +12,11 @@ namespace To_Do_List_exam_27._04._2023
 {
     public partial class AddCase : Form
     {
+
+        static class Send {
+            public static string Value { get; set; }
+        }
+
         public AddCase() {
             InitializeComponent();
 
@@ -38,7 +43,19 @@ namespace To_Do_List_exam_27._04._2023
             textBox6.Text = textBox2.Text;
         }
 
+
+
         private void button1_Click(object sender, EventArgs e) {
+            string date = dateTimePicker1.Text;
+            
+            Form1 main = Owner as Form1;
+            if (main != null) {
+                main.ReceiveDate = date;
+                main.ReceiveTime = maskedTextBox1.Text;
+                main.ReceivePriority = comboBox1.SelectedItem.ToString();
+                main.ReceiveTag = textBox1.Text;
+            }
+
             Close();
         }
     }
