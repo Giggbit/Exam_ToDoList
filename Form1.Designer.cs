@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,11 +60,8 @@
             this.projectToolStripMenuItem,
             this.savePDFFileToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(597, 33);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // addToolStripMenuItem
             // 
@@ -73,62 +71,49 @@
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
-            this.addToolStripMenuItem.Text = "Menu";
+            resources.ApplyResources(this.addToolStripMenuItem, "addToolStripMenuItem");
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(187, 34);
-            this.newToolStripMenuItem.Text = "Add case";
+            resources.ApplyResources(this.newToolStripMenuItem, "newToolStripMenuItem");
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(187, 34);
-            this.saveToolStripMenuItem.Text = "Save";
+            resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(187, 34);
-            this.saveAsToolStripMenuItem.Text = "Save as...";
+            resources.ApplyResources(this.saveAsToolStripMenuItem, "saveAsToolStripMenuItem");
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(187, 34);
-            this.exitToolStripMenuItem.Text = "Exit";
+            resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // projectToolStripMenuItem
             // 
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(82, 29);
-            this.projectToolStripMenuItem.Text = "Project";
+            resources.ApplyResources(this.projectToolStripMenuItem, "projectToolStripMenuItem");
             // 
             // savePDFFileToolStripMenuItem
             // 
             this.savePDFFileToolStripMenuItem.Name = "savePDFFileToolStripMenuItem";
-            this.savePDFFileToolStripMenuItem.Size = new System.Drawing.Size(124, 29);
-            this.savePDFFileToolStripMenuItem.Text = "Save as PDF";
+            resources.ApplyResources(this.savePDFFileToolStripMenuItem, "savePDFFileToolStripMenuItem");
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 52);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Список дел на";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(137, 49);
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(135, 28);
-            this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // listView1
@@ -139,65 +124,50 @@
             this.columnHeader3,
             this.columnHeader7});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(16, 96);
+            resources.ApplyResources(this.listView1, "listView1");
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(564, 352);
-            this.listView1.TabIndex = 7;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Date";
-            this.columnHeader1.Width = 200;
+            resources.ApplyResources(this.columnHeader1, "columnHeader1");
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Time";
-            this.columnHeader2.Width = 120;
+            resources.ApplyResources(this.columnHeader2, "columnHeader2");
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Priority";
-            this.columnHeader3.Width = 120;
+            resources.ApplyResources(this.columnHeader3, "columnHeader3");
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Tag";
-            this.columnHeader7.Width = 120;
+            resources.ApplyResources(this.columnHeader7, "columnHeader7");
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 52);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Поиск";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(354, 49);
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 26);
-            this.textBox1.TabIndex = 9;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(536, 44);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 460);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -205,9 +175,10 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Main";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
