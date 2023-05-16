@@ -25,6 +25,8 @@ namespace To_Do_List_exam_27._04._2023
             comboBox1.Items.Add("Высокий");
             comboBox1.SelectedItem = comboBox1.Items[0];
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            maskedTextBox1.Text = "0000";
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
@@ -46,17 +48,27 @@ namespace To_Do_List_exam_27._04._2023
 
 
         private void button1_Click(object sender, EventArgs e) {
-            string date = dateTimePicker1.Text;
-            
+            string date = dateTimePicker1.Value.ToLongDateString();
+
+            List<string> sub_items = new List<string> {
+                date, maskedTextBox1.Text, comboBox1.SelectedItem.ToString(), textBox1.Text
+            };
+
             Form1 main = Owner as Form1;
             if (main != null) {
                 main.ReceiveDate = date;
                 main.ReceiveTime = maskedTextBox1.Text;
                 main.ReceivePriority = comboBox1.SelectedItem.ToString();
                 main.ReceiveTag = textBox1.Text;
+                foreach(string item in sub_items) {
+                    main.ReceiveAllSubItems = item;
+                }
+                main.ReceiveAllItems = date;
             }
 
             Close();
         }
+
+
     }
 }
