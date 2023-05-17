@@ -82,11 +82,18 @@ namespace To_Do_List_exam_27._04._2023
             listView1.Items.Clear();
             item.SubItems.Clear();
 
-            /*for(int i = 0; i < all_items.Count; i++) {
-                if (textBox1.Text.Contains(all_items[i])) {
-                    listView1.Items.Add("tut");
+            for (int i = 0; i < all_items.Count; i++)
+            {
+                if (textBox1.Text.Contains(all_items[i]))
+                {
+                    item = listView1.Items.Add(all_items[i]);
+                    for (int j = 1; j < all_sub_items.Count; j++)
+                    {
+                        item.SubItems.Add(all[j]);
+                    }
                 }
-            }*/
+            }
+
 
             if (textBox1.Text == "") { 
                 for(int i = 0; i < all_items.Count; i++) {
@@ -95,7 +102,6 @@ namespace To_Do_List_exam_27._04._2023
                         item.SubItems.Add(all_sub_items[j]);
                     }
                 }
-
             }
         }
 
