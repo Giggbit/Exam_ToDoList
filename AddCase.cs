@@ -27,6 +27,8 @@ namespace To_Do_List_exam_27._04._2023
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
             maskedTextBox1.Text = "0000";
+
+            this.KeyPreview = true;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
@@ -45,12 +47,19 @@ namespace To_Do_List_exam_27._04._2023
             textBox6.Text = textBox2.Text;
         }
 
+        private void AddCase_KeyUp(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) button1.PerformClick();
+        }
 
 
         private void button1_Click(object sender, EventArgs e) {
             string date = dateTimePicker1.Value.ToLongDateString();
 
             List<string> sub_items = new List<string> {
+                maskedTextBox1.Text, comboBox1.SelectedItem.ToString(), textBox1.Text
+            };
+
+            List<string> all = new List<string> {
                 date, maskedTextBox1.Text, comboBox1.SelectedItem.ToString(), textBox1.Text
             };
 
@@ -63,12 +72,15 @@ namespace To_Do_List_exam_27._04._2023
                 foreach(string item in sub_items) {
                     main.ReceiveAllSubItems = item;
                 }
+                foreach(string item in all) {
+                    main.ReceiveAll = item;
+                }
                 main.ReceiveAllItems = date;
             }
 
             Close();
         }
 
-
+        
     }
 }

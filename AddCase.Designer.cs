@@ -206,6 +206,7 @@
             this.MaximizeBox = false;
             this.Name = "AddCase";
             this.Text = "To-Do List";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AddCase_KeyUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

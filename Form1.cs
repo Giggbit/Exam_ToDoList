@@ -23,6 +23,7 @@ namespace To_Do_List_exam_27._04._2023
 
         List<string> all_items = new List<string>();
         List<string> all_sub_items = new List<string>();
+        List<string> all = new List<string>();
 
         public Form1() {
             InitializeComponent();
@@ -33,10 +34,6 @@ namespace To_Do_List_exam_27._04._2023
             comboBox1.Items.Add("Месяц");
             comboBox1.SelectedItem = comboBox1.Items[0];
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            timer1.Interval = 2000;
-            timer1.Enabled = true;
-            timer1.Start();
         }
 
 
@@ -51,10 +48,8 @@ namespace To_Do_List_exam_27._04._2023
                     for(int i = 0; i < listView1.Items.Count; i++) {
                         if(listView1.Items[i].Text == DateTime.Today.ToLongDateString()) {
                             sort_items.Add(listView1.Items[i].Text);
-                            MessageBox.Show(listView1.Items[i].Text);
                             for (int j = 0; j < listView1.Columns.Count; j++) {
                                 sub_items.Add(item.SubItems[j].Text);
-                                MessageBox.Show(item.SubItems[j].Text);
                             }
                         }
                     }
@@ -67,30 +62,57 @@ namespace To_Do_List_exam_27._04._2023
                         }
                         listView1.Items.AddRange(new ListViewItem[] { item });
                     }
-
                     break;
 
                 case "Все":
                     listView1.Items.Clear();
-                    for(int i = 0; i < all_items.Count; i++) {
+                    for (int i = 0; i < all_items.Count; i++) {
                         item = new ListViewItem(all_items[i]);
                         for (int j = 0; j < all_sub_items.Count; j++) {
                             item.SubItems.Add(all_sub_items[j]);
                         }
                         listView1.Items.AddRange(new ListViewItem[] { item });
                     }
+
                     break;
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e) {
-            /*items.Clear();
-            for (int i = 0; i < listView1.Items.Count; i++) {
-                items.Add(listView1.Items[i].Text);
-                for (int j = 1; j < listView1.Columns.Count; j++) {
-                    all_sub_items.Add(item.SubItems[j].Text);
+        private void textBox1_TextChanged(object sender, EventArgs e) {
+            listView1.Items.Clear();
+            item.SubItems.Clear();
+
+            /*for(int i = 0; i < all_items.Count; i++) {
+                if (textBox1.Text.Contains(all_items[i])) {
+                    listView1.Items.Add("tut");
                 }
             }*/
+
+            if (textBox1.Text == "") { 
+                for(int i = 0; i < all_items.Count; i++) {
+                    item = listView1.Items.Add(all_items[i]);
+                    for(int j = 0; j < all_sub_items.Count; j++) {
+                        item.SubItems.Add(all_sub_items[j]);
+                    }
+                }
+
+            }
+        }
+
+        private void projectToolStripMenuItem_Click(object sender, EventArgs e) {
+            List<string> list = new List<string>();
+            for(int i = 0; i < listView1.CheckedItems.Count; i++) {
+                if (listView1.CheckedItems[i].BackColor == Color.SpringGreen) {
+                    for(int j = 0; j < listView1.CheckedItems.Count; j++) {
+                        listView1.CheckedItems[j].BackColor = Color.White;
+                        listView1.CheckedItems[i].Checked = false;
+                    }
+                    break;
+                }
+                list.Add(listView1.CheckedItems[i].Text);
+                listView1.CheckedItems[i].BackColor = Color.SpringGreen;
+                listView1.CheckedItems[i].Checked = false;
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -104,8 +126,8 @@ namespace To_Do_List_exam_27._04._2023
         private void saveToolStripMenuItem_Click_1(object sender, EventArgs e) {
             FileStream file = new FileStream("file.txt", FileMode.OpenOrCreate);
             StreamWriter sw = new StreamWriter(file);
-            foreach(ListViewItem l in listView1.Items) {
-                sw.WriteLine(l.Text);
+            for (int i = 0; i < all.Count; i++) {
+                sw.WriteLine(all[i]);
             }
             sw.Close();
         }
@@ -133,6 +155,10 @@ namespace To_Do_List_exam_27._04._2023
         public string ReceiveAllItems {
             get { return null; }
             set { all_items.Add(value); }
+        }
+        public string ReceiveAll {
+            get { return null; }
+            set { all.Add(value); }
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -176,12 +202,13 @@ namespace To_Do_List_exam_27._04._2023
             }
 
             //Элементы таблицы
-            for (int i = 0; i < all_sub_items.Count; i++) {
-                table.AddCell(new PdfPCell(new Phrase(all_sub_items[i], font)));
+            for (int i = 0; i < all.Count; i++) {
+                table.AddCell(new PdfPCell(new Phrase(all[i], font)));
             }
             document.Add(table);
             document.Close();
         }
+
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
             Stream myStream;
@@ -203,7 +230,7 @@ namespace To_Do_List_exam_27._04._2023
             }            
         }
 
-        
+
     }
 
 
